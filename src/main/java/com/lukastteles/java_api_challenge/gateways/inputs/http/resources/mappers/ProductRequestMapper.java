@@ -10,9 +10,9 @@ public interface ProductRequestMapper {
 
     Product from(ProductRequest productRequest);
 
-    @Mapping(target = "name", source = "productRequest.name")
-    @Mapping(target = "value", source = "productRequest.value")
     @Mapping(target = "id", source = "id")
+    @Mapping(target = "name", source = "productRequest.name")
+    @Mapping(target = "price", source = "productRequest.price")
     Product from(ProductRequest productRequest, Integer id);
 
 }
