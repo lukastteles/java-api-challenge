@@ -26,6 +26,7 @@ public class ProductDataGatewayImpl implements ProductDataGateway {
         return of(product)
                 .map(productEntityMapper::from)
                 .map(productRepository::save)
+                .map(p -> productRepository.findById(p.getId()).orElseThrow())
                 .map(productEntityMapper::from)
                 .orElseThrow();
     }

@@ -4,9 +4,9 @@ import com.lukastteles.java_api_challenge.gateways.inputs.http.resources.Product
 import com.lukastteles.java_api_challenge.gateways.inputs.http.resources.ProductResponse;
 import com.lukastteles.java_api_challenge.gateways.inputs.http.resources.mappers.ProductRequestMapper;
 import com.lukastteles.java_api_challenge.gateways.inputs.http.resources.mappers.ProductResponseMapper;
-import com.lukastteles.java_api_challenge.usecases.CreateOrUpdateProduct;
-import com.lukastteles.java_api_challenge.usecases.DeleteProduct;
-import com.lukastteles.java_api_challenge.usecases.FindProduct;
+import com.lukastteles.java_api_challenge.usecases.product.CreateOrUpdateProduct;
+import com.lukastteles.java_api_challenge.usecases.product.DeleteProduct;
+import com.lukastteles.java_api_challenge.usecases.product.FindProduct;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

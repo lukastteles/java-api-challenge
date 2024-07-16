@@ -1,4 +1,4 @@
-package com.lukastteles.java_api_challenge.usecases;
+package com.lukastteles.java_api_challenge.usecases.product;
 
 import com.lukastteles.java_api_challenge.gateways.outputs.ProductDataGateway;
 import lombok.RequiredArgsConstructor;

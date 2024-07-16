@@ -24,4 +24,8 @@ public class ProductRequest {
     @Schema(description = "Product price", example = "1.23", requiredMode = REQUIRED)
     private BigDecimal price;
 
+    @NotNull( message = "Category ID is mandatory")
+    @Schema(description = "Category ID", example = "321", requiredMode = REQUIRED)
+    private Integer categoryId;
+
 }

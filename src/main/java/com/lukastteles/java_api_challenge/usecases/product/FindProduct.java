@@ -1,4 +1,4 @@
-package com.lukastteles.java_api_challenge.usecases;
+package com.lukastteles.java_api_challenge.usecases.product;
 
 import com.lukastteles.java_api_challenge.domain.Product;
 import com.lukastteles.java_api_challenge.exceptions.NotFoundException;

@@ -20,4 +20,7 @@ public class ProductResponse {
 
     @Schema(description = "Product price", example = "1.23")
     private BigDecimal price;
+
+    @Schema(description = "Category")
+    private CategoryResponse category;
 }
