@@ -7,6 +7,7 @@ import com.lukastteles.java_api_challenge.gateways.inputs.http.resources.mappers
 import com.lukastteles.java_api_challenge.usecases.category.CreateOrUpdateCategory;
 import com.lukastteles.java_api_challenge.usecases.category.DeleteCategory;
 import com.lukastteles.java_api_challenge.usecases.category.FindCategory;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,6 +33,7 @@ import static org.springframework.http.HttpStatus.OK;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/categories")
+@Tag(name = "Categories", description = "Category operations")
 public class CategoryController {
 
     //use cases

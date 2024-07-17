@@ -7,6 +7,7 @@ import com.lukastteles.java_api_challenge.gateways.inputs.http.resources.mappers
 import com.lukastteles.java_api_challenge.usecases.product.CreateOrUpdateProduct;
 import com.lukastteles.java_api_challenge.usecases.product.DeleteProduct;
 import com.lukastteles.java_api_challenge.usecases.product.FindProduct;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,6 +33,7 @@ import static org.springframework.http.HttpStatus.OK;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/products")
+@Tag(name = "Products", description = "Product Operations")
 public class ProductController {
 
     //use cases

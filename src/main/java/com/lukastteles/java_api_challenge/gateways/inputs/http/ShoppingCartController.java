@@ -8,6 +8,7 @@ import com.lukastteles.java_api_challenge.usecases.cart.AddCartItem;
 import com.lukastteles.java_api_challenge.usecases.cart.FindCartItens;
 import com.lukastteles.java_api_challenge.usecases.cart.RemoveCartItem;
 import com.lukastteles.java_api_challenge.usecases.cart.UpdateCartItems;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,6 +33,7 @@ import static org.springframework.http.HttpStatus.OK;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/cart")
+@Tag(name = "Shopping Cart", description = "Shopping Cart Operations")
 public class ShoppingCartController {
 
     //use cases
