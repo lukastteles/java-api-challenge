@@ -18,8 +18,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
@@ -44,6 +47,13 @@ public class CategoryController {
     @GetMapping(path = "/{id}")
     public CategoryResponse getCategory(@PathVariable Integer id) {
         return categoryResponseMapper.from(findCategory.execute(id));
+    }
+
+    @ResponseStatus(OK)
+    @GetMapping
+    public List<CategoryResponse> getCategoriesByName(
+            @RequestParam String containingName) {
+        return categoryResponseMapper.from(findCategory.execute(containingName));
     }
 
     @ResponseStatus(CREATED)

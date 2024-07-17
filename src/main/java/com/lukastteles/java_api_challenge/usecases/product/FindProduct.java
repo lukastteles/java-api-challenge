@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @RequiredArgsConstructor
 @Slf4j
@@ -18,6 +20,12 @@ public class FindProduct {
         final Product product = productDataGateway.findById(id).orElseThrow(NotFoundException::new);
         log.info("product found: {}", product);
         return product;
+    }
+
+    public List<Product> execute(final String name, final String categoryName) {
+        final List<Product> products = productDataGateway.findAllByNameAndCategoryName(name, categoryName);
+        log.info("products found: {}", products);
+        return products;
     }
 
 }

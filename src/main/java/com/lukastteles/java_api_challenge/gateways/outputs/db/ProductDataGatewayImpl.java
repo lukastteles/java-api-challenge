@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 
 import static java.util.Optional.of;
@@ -41,5 +42,12 @@ public class ProductDataGatewayImpl implements ProductDataGateway {
     public void delete(Integer id) {
         log.info("Deleting product with id: {}", id);
         productRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Product> findAllByNameAndCategoryName(String name, String categoryName) {
+        return productEntityMapper.from(
+                productRepository.findAllByNameContainingOrCategoryNameContaining(name, categoryName)
+        );
     }
 }

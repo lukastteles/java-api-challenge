@@ -18,8 +18,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
@@ -45,6 +48,14 @@ public class ProductController {
     @GetMapping(path = "/{id}")
     public ProductResponse getProduct(@PathVariable Integer id) {
         return productResponseMapper.from(findProduct.execute(id));
+    }
+
+    @ResponseStatus(OK)
+    @GetMapping
+    public List<ProductResponse> getProductsByNameOrCategoryName(
+            @RequestParam(required = false) String containingName,
+            @RequestParam(required = false) String containingCategoryName) {
+        return productResponseMapper.from(findProduct.execute(containingName, containingCategoryName));
     }
 
     @ResponseStatus(CREATED)

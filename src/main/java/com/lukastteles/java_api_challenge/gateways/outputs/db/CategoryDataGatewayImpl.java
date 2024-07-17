@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import java.util.Optional;
+import java.util.List;
 
 import static java.util.Optional.of;
 
@@ -31,14 +31,24 @@ public class CategoryDataGatewayImpl implements CategoryDataGateway {
     }
 
     @Override
-    public Optional<Category> findById(Integer id) {
+    public Category findById(Integer id) {
         log.info("Finding category with id: {}", id);
-        return categoryRepository.findById(id).map(categoryEntityMapper::from);
+        return categoryRepository.findById(id)
+                .map(categoryEntityMapper::from)
+                .orElseThrow();
     }
 
     @Override
     public void delete(Integer id) {
         log.info("Deleting category with id: {}", id);
         categoryRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Category> findAllByName(String name) {
+        return of(name)
+                .map(categoryRepository::findAllByNameContaining)
+                .map(categoryEntityMapper::from)
+                .orElseThrow();
     }
 }
