@@ -9,7 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Optional;
 
 import static java.util.Optional.of;
 
@@ -33,9 +32,11 @@ public class ProductDataGatewayImpl implements ProductDataGateway {
     }
 
     @Override
-    public Optional<Product> findById(Integer id) {
+    public Product findById(Integer id) {
         log.info("Finding product with id: {}", id);
-        return productRepository.findById(id).map(productEntityMapper::from);
+        return productRepository.findById(id)
+                .map(productEntityMapper::from)
+                .orElseThrow();
     }
 
     @Override

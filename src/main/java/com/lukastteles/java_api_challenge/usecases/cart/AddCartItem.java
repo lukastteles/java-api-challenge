@@ -2,6 +2,7 @@ package com.lukastteles.java_api_challenge.usecases.cart;
 
 import com.lukastteles.java_api_challenge.domain.CartItem;
 import com.lukastteles.java_api_challenge.gateways.outputs.CartItemDataGateway;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -17,7 +18,7 @@ public class AddCartItem {
 
     private final CartItemDataGateway cartItemDataGateway;
 
-    public List<CartItem> execute(CartItem cartItem){
+    public List<CartItem> execute(@NonNull CartItem cartItem){
         of(cartItem)
                 .map(c -> cartItemDataGateway.findByProductId(c.getProduct().getId()))
                 .ifPresentOrElse(
