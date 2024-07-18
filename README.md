@@ -3,9 +3,9 @@
 ## 💻 Projeto
 API REST Java com Spring Boot para gerenciar uma loja virtual
 
-O projeto está disponível em:
+O projeto está disponível em: 
+http://java-challenge-loja-lukas.uc.r.appspot.com/swagger-ui/index.html
 
-Documentação da API:
 
 ## 🔨 Como executar a aplicação
 
