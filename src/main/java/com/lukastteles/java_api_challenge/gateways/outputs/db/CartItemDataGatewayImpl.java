@@ -33,7 +33,7 @@ public class CartItemDataGatewayImpl implements CartItemDataGateway {
         return of(productId)
                 .map(cartItemRepository::findByProductId)
                 .map(cartItemEntityMapper::from)
-                .orElseThrow();
+                .orElse(null);
     }
 
     @Override
